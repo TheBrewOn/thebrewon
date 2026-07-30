@@ -2238,7 +2238,47 @@ font-size:28px;
 }
 
 }
+/* ==========================================================
+BRONZE CURSOR GLOW
+========================================================== */
 
+.cursor-glow{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:450px;
+height:450px;
+
+pointer-events:none;
+
+border-radius:50%;
+
+background:
+radial-gradient(circle,
+rgba(201,149,55,.16) 0%,
+rgba(201,149,55,.08) 30%,
+rgba(201,149,55,.02) 55%,
+transparent 75%);
+
+filter:blur(35px);
+
+transform:translate(-50%,-50%);
+
+z-index:1;
+
+transition:
+width .25s,
+height .25s,
+opacity .35s;
+
+mix-blend-mode:screen;
+
+opacity:.95;
+
+}
 /*==========================================================
 END OF STYLE.CSS
 ==========================================================*/
