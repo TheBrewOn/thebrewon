@@ -296,9 +296,8 @@ gap:14px;
 }
 
 .logo img{
-
-width:110px;
-
+    width:60px;
+    height:auto;
 }
 
 .logo span{
@@ -349,18 +348,12 @@ padding:
 ==========================================================*/
 
 .hero{
-
-min-height:100vh;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-padding-top:120px;
-padding-bottom:120px;
-
-position:relative;
-
+    min-height:100vh;
+    padding-top:180px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
 }
 
 background:
@@ -648,18 +641,15 @@ color:var(--gray);
 
 /* Scroll */
 
-.scrollIndicator{
-
-position:absolute;
-
-bottom:35px;
-
-left:50%;
-
-transform:translateX(-50%);
-
-z-index:10;
-
+.scroll-indicator{
+    position:absolute;
+    bottom:40px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
 }
 .scroll-indicator span{
 
@@ -742,9 +732,8 @@ gap:35px;
 }
 
 .hero-logo{
-
-width:140px;
-
+    width:300px;
+    margin-bottom:40px;
 }
 
 }
