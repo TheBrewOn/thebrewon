@@ -191,19 +191,6 @@ revealElements.forEach(el=>{
 HERO PARALLAX
 ========================================================== */
 
-const glow=document.querySelector(".hero-glow");
-
-window.addEventListener("mousemove",(e)=>{
-
-    const x=(e.clientX/window.innerWidth-.5)*40;
-    const y=(e.clientY/window.innerHeight-.5)*40;
-
-    glow.style.transform=
-    `translate(${x}px,${y}px)`;
-
-});
-
-
 /* ==========================================================
 FLOATING LOGO
 ========================================================== */
