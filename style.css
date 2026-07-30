@@ -349,10 +349,9 @@ padding:
 ==========================================================*/
 
 .hero{
-
-position:relative;
-min-height:100vh;
-
+    min-height:100vh;
+    padding-top:180px;
+}
 display:flex;
 justify-content:center;
 align-items:center;
