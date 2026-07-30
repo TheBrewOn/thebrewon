@@ -348,20 +348,18 @@ padding:
 ==========================================================*/
 
 .hero{
-    position:relative;
     min-height:100vh;
-    padding-top:170px;
+    padding-top:180px;
     display:flex;
     flex-direction:column;
-    justify-content:center;
     align-items:center;
-    overflow:hidden;
+    justify-content:center;
 
     background:
-    radial-gradient(circle at top,
-    rgba(201,149,55,.12),
-    transparent 40%),
-    #050505;
+        radial-gradient(circle at top,
+        rgba(201,149,55,.12),
+        transparent 40%),
+        #050505;
 }
 
 /* Background Glow */
@@ -445,14 +443,12 @@ margin-bottom:45px;
 .heroLogo{
     width:180px;
     margin-bottom:45px;
-}
 
-filter:
-drop-shadow(0 0 18px rgba(201,149,55,.35))
-drop-shadow(0 0 55px rgba(201,149,55,.25));
+    filter:
+        drop-shadow(0 0 18px rgba(201,149,55,.35))
+        drop-shadow(0 0 55px rgba(201,149,55,.25));
 
-animation:floatLogo 5s ease-in-out infinite;
-
+    animation:floatLogo 5s ease-in-out infinite;
 }
 
 @keyframes floatLogo{
