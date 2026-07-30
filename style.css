@@ -348,20 +348,20 @@ padding:
 ==========================================================*/
 
 .hero{
+    position:relative;
     min-height:100vh;
-    padding-top:180px;
+    padding-top:170px;
     display:flex;
     flex-direction:column;
-    align-items:center;
     justify-content:center;
-}
+    align-items:center;
+    overflow:hidden;
 
-background:
-radial-gradient(circle at top,
-rgba(201,149,55,.12),
-transparent 40%),
-#050505;
-
+    background:
+    radial-gradient(circle at top,
+    rgba(201,149,55,.12),
+    transparent 40%),
+    #050505;
 }
 
 /* Background Glow */
@@ -633,76 +633,69 @@ margin-bottom:10px;
 }
 
 .hero-stat p{
-   margin-bottom:60px;
-
-color:var(--gray);
-
+    color:var(--gray);
 }
-
 /* Scroll */
 
 .scroll-indicator{
     position:absolute;
-    bottom:40px;
     left:50%;
+    bottom:35px;
+
     transform:translateX(-50%);
+
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap:10px;
-}
-.scroll-indicator span{
 
-display:block;
-
-width:2px;
-
-height:60px;
-
-margin:auto;
-
-background:linear-gradient(
-transparent,
-var(--bronze));
-
-animation:scrollMove 2s infinite;
-
+    z-index:20;
 }
 
 .scroll-indicator p{
-
-margin-top:12px;
-
-font-size:12px;
-
-letter-spacing:5px;
-
-color:#888;
-
+    font-size:12px;
+    letter-spacing:8px;
+    color:#8f8f8f;
+    margin-bottom:10px;
 }
 
-@keyframes scrollMove{
+.scroll-indicator span{
+    width:2px;
+    height:55px;
 
-0%{
+    background:linear-gradient(
+        transparent,
+        var(--bronze)
+    );
 
-transform:translateY(0);
+    position:relative;
+}
 
-opacity:.3;
+.scroll-indicator span::after{
+    content:"";
 
+    position:absolute;
+    bottom:-8px;
+    left:50%;
+
+    width:10px;
+    height:10px;
+
+    border-right:2px solid var(--bronze);
+    border-bottom:2px solid var(--bronze);
+
+    transform:translateX(-50%) rotate(45deg);
+
+    animation:arrowBounce 1.6s infinite;
+}
+
+@keyframes arrowBounce{
+
+0%,100%{
+transform:translateX(-50%) rotate(45deg) translateY(0);
 }
 
 50%{
-
-opacity:1;
-
-}
-
-100%{
-
-transform:translateY(12px);
-
-opacity:.3;
-
+transform:translateX(-50%) rotate(45deg) translateY(8px);
 }
 
 }
@@ -731,9 +724,15 @@ gap:35px;
 
 }
 
-.hero-logo{
-    width:300px;
-    margin-bottom:40px;
+.heroLogo{
+    width:170px;
+    height:auto;
+
+    filter:
+    drop-shadow(0 0 18px rgba(201,149,55,.35))
+    drop-shadow(0 0 55px rgba(201,149,55,.25));
+
+    animation:floatLogo 5s ease-in-out infinite;
 }
 
 }
