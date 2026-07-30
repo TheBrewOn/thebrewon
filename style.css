@@ -349,16 +349,19 @@ padding:
 ==========================================================*/
 
 .hero{
-    min-height:100vh;
-    padding-top:120px;
-}
+
+min-height:100vh;
+
 display:flex;
 justify-content:center;
 align-items:center;
 
-padding:0 8%;
+padding-top:120px;
+padding-bottom:120px;
 
-overflow:hidden;
+position:relative;
+
+}
 
 background:
 radial-gradient(circle at top,
