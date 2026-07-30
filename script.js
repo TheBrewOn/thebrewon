@@ -270,7 +270,62 @@ window.addEventListener("scroll",()=>{
 
 });
 
+/* ==========================================================
+LUXURY CURSOR GLOW
+========================================================== */
 
+const glow=document.querySelector(".cursor-glow");
+
+let mouseX=window.innerWidth/2;
+let mouseY=window.innerHeight/2;
+
+let glowX=mouseX;
+let glowY=mouseY;
+
+window.addEventListener("mousemove",(e)=>{
+
+mouseX=e.clientX;
+mouseY=e.clientY;
+
+});
+
+function animateGlow(){
+
+glowX+=(mouseX-glowX)*0.12;
+glowY+=(mouseY-glowY)*0.12;
+
+glow.style.left=glowX+"px";
+glow.style.top=glowY+"px";
+
+requestAnimationFrame(animateGlow);
+
+}
+
+animateGlow();
+
+/* Bigger glow on buttons */
+
+document.querySelectorAll(
+"a,button,.button,.primary-btn,.secondary-btn,.service-card,.portfolio-card,.pricing-card"
+).forEach(item=>{
+
+item.addEventListener("mouseenter",()=>{
+
+glow.style.width="650px";
+glow.style.height="650px";
+glow.style.opacity="1";
+
+});
+
+item.addEventListener("mouseleave",()=>{
+
+glow.style.width="450px";
+glow.style.height="450px";
+glow.style.opacity=".95";
+
+});
+
+});
 /* ==========================================================
 END
 ========================================================== */
