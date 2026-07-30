@@ -113,6 +113,8 @@ function animateCounters(){
 
             const text=counter.innerText;
 
+            if(text.includes("/")) return;
+
             const number=parseInt(text.replace(/\D/g,""));
 
             if(isNaN(number)) return;
