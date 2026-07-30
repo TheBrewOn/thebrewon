@@ -1,11 +1,9 @@
-// ==========================================
-// BREWON WEBSITE
-// SCRIPT PART 1
-// ==========================================
+/* ==========================================================
+   BREWON
+   PREMIUM SCRIPT
+========================================================== */
 
-// Wait until page is fully loaded
-
-window.addEventListener("load", function () {
+window.addEventListener("load", () => {
 
     const loader = document.getElementById("loader");
 
@@ -21,60 +19,258 @@ window.addEventListener("load", function () {
 
         },1000);
 
-    },3000);
+    },2200);
 
 });
 
 
-// ==========================================
-// Smooth Scroll Animation
-// ==========================================
+/* ==========================================================
+HEADER ON SCROLL
+========================================================== */
 
-const observer = new IntersectionObserver((entries)=>{
+const header = document.querySelector("header");
+
+window.addEventListener("scroll",()=>{
+
+    if(window.scrollY>80){
+
+        header.style.background="rgba(5,5,5,.82)";
+        header.style.backdropFilter="blur(22px)";
+        header.style.padding="16px 8%";
+
+    }
+
+    else{
+
+        header.style.background="rgba(5,5,5,.45)";
+        header.style.padding="22px 8%";
+
+    }
+
+});
+
+
+/* ==========================================================
+SMOOTH ACTIVE NAV
+========================================================== */
+
+const sections=document.querySelectorAll("section");
+const navLinks=document.querySelectorAll("nav ul li a");
+
+window.addEventListener("scroll",()=>{
+
+    let current="";
+
+    sections.forEach(section=>{
+
+        const top=section.offsetTop-150;
+        const height=section.clientHeight;
+
+        if(pageYOffset>=top){
+
+            current=section.getAttribute("id");
+
+        }
+
+    });
+
+    navLinks.forEach(link=>{
+
+        link.classList.remove("active");
+
+        if(link.getAttribute("href")==="#"+current){
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+});
+
+
+/* ==========================================================
+COUNTER ANIMATION
+========================================================== */
+
+const counters=document.querySelectorAll(".hero-stats h2");
+
+let counterStarted=false;
+
+function animateCounters(){
+
+    if(counterStarted) return;
+
+    const hero=document.querySelector(".hero");
+
+    const trigger=hero.offsetTop+hero.offsetHeight-250;
+
+    if(window.scrollY+window.innerHeight>trigger){
+
+        counterStarted=true;
+
+        counters.forEach(counter=>{
+
+            const text=counter.innerText;
+
+            const number=parseInt(text.replace(/\D/g,""));
+
+            if(isNaN(number)) return;
+
+            let current=0;
+
+            const increment=Math.ceil(number/60);
+
+            const suffix=text.replace(/[0-9]/g,"");
+
+            const timer=setInterval(()=>{
+
+                current+=increment;
+
+                if(current>=number){
+
+                    current=number;
+
+                    clearInterval(timer);
+
+                }
+
+                counter.innerText=current+suffix;
+
+            },20);
+
+        });
+
+    }
+
+}
+
+window.addEventListener("scroll",animateCounters);
+
+
+/* ==========================================================
+SCROLL REVEAL
+========================================================== */
+
+const revealElements=document.querySelectorAll(
+
+".service-card,.portfolio-card,.pricing-card,.testimonial-card,.feature,.about-card,.process-card"
+
+);
+
+const observer=new IntersectionObserver(entries=>{
 
     entries.forEach(entry=>{
 
         if(entry.isIntersecting){
 
-            entry.target.classList.add("show");
+            entry.target.style.opacity="1";
+            entry.target.style.transform="translateY(0)";
+            observer.unobserve(entry.target);
 
         }
 
     });
 
 },{
-    threshold:0.15
+    threshold:.15
 });
 
-document.querySelectorAll(".reveal").forEach((el)=>{
+revealElements.forEach(el=>{
+
+    el.style.opacity="0";
+    el.style.transform="translateY(70px)";
+    el.style.transition=".8s ease";
 
     observer.observe(el);
 
 });
 
 
-// ==========================================
-// Navbar Blur On Scroll
-// ==========================================
+/* ==========================================================
+HERO PARALLAX
+========================================================== */
+
+const glow=document.querySelector(".hero-glow");
+
+window.addEventListener("mousemove",(e)=>{
+
+    const x=(e.clientX/window.innerWidth-.5)*40;
+    const y=(e.clientY/window.innerHeight-.5)*40;
+
+    glow.style.transform=
+    `translate(${x}px,${y}px)`;
+
+});
+
+
+/* ==========================================================
+FLOATING LOGO
+========================================================== */
+
+const heroLogo=document.querySelector(".hero-logo img");
+
+let angle=0;
+
+function floatLogo(){
+
+    angle+=0.02;
+
+    heroLogo.style.transform=
+
+    `translateY(${Math.sin(angle)*8}px)`;
+
+    requestAnimationFrame(floatLogo);
+
+}
+
+floatLogo();
+
+
+/* ==========================================================
+BUTTON RIPPLE
+========================================================== */
+
+document.querySelectorAll(".button,.primary-btn").forEach(btn=>{
+
+    btn.addEventListener("mouseenter",()=>{
+
+        btn.style.transform="translateY(-5px) scale(1.02)";
+
+    });
+
+    btn.addEventListener("mouseleave",()=>{
+
+        btn.style.transform="translateY(0) scale(1)";
+
+    });
+
+});
+
+
+/* ==========================================================
+SCROLL INDICATOR HIDE
+========================================================== */
+
+const scrollIndicator=document.querySelector(".scroll-indicator");
 
 window.addEventListener("scroll",()=>{
 
-const navbar=document.querySelector(".navbar");
+    if(window.scrollY>150){
 
-if(!navbar) return;
+        scrollIndicator.style.opacity="0";
 
-if(window.scrollY>60){
+    }
 
-navbar.style.background="rgba(5,5,5,.82)";
-navbar.style.backdropFilter="blur(22px)";
+    else{
 
-}
+        scrollIndicator.style.opacity="1";
 
-else{
-
-navbar.style.background="rgba(5,5,5,.45)";
-navbar.style.backdropFilter="blur(18px)";
-
-}
+    }
 
 });
+
+
+/* ==========================================================
+END
+========================================================== */
