@@ -645,20 +645,19 @@ color:var(--gray);
 
 /* Scroll */
 
-.scroll-indicator{
+.scrollIndicator{
 
 position:absolute;
 
-bottom:40px;
+bottom:35px;
 
 left:50%;
 
 transform:translateX(-50%);
 
-text-align:center;
+z-index:10;
 
 }
-
 .scroll-indicator span{
 
 display:block;
