@@ -350,7 +350,7 @@ padding:
 
 .hero{
     min-height:100vh;
-    padding-top:180px;
+    padding-top:120px;
 }
 display:flex;
 justify-content:center;
@@ -446,9 +446,10 @@ margin-bottom:45px;
 
 }
 
-.hero-logo{
-
-width:220px;
+.heroLogo{
+    width:180px;
+    margin-bottom:45px;
+}
 
 filter:
 drop-shadow(0 0 18px rgba(201,149,55,.35))
@@ -636,6 +637,7 @@ margin-bottom:10px;
 }
 
 .hero-stat p{
+   margin-bottom:60px;
 
 color:var(--gray);
 
@@ -720,6 +722,8 @@ opacity:.3;
 .hero-title{
 
 font-size:54px;
+   margin-bottom:40px;
+line-height:1.05;
 
 }
 
